@@ -2,7 +2,7 @@
 
 This Pomodoro Timer is a simple implementation based on instructions from the "100 Days of Python" course. It utilizes the Tkinter library for the graphical user interface.
 
-![Pomodoro Timer](screenshot.png)
+![Pomodoro Timer](Screenshot.png)
 
 ## Features
 - **Work, Short Break, Long Break:** The timer alternates between work intervals, short breaks, and long breaks.
