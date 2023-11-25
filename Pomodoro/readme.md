@@ -4,6 +4,9 @@ This Pomodoro Timer is a simple implementation based on instructions from the "1
 
 ![Pomodoro Timer](Screenshot.png)
 
+## Replit link
+https://replit.com/@mariaale2023/HeftyModestArchives#main.py
+
 ## Features
 - **Work, Short Break, Long Break:** The timer alternates between work intervals, short breaks, and long breaks.
 - **Checkmarks:** Keeps track of completed work intervals with checkmarks.
