@@ -1,5 +1,15 @@
 # Ticket Management System
 
+<div style="text-align:center">
+  <img src="python_ticket.jpg" alt="Ticket" width="300"/>
+</div>
+
+
+
+also available in Replit:
+https://replit.com/@mariaale2023/ticketsystem
+![Screenshot](Screenshot.jpg)
+Originally part of the Assignment in IT2016D
 This Python script implements a simple ticket management system. It defines a `Ticket` class and provides a basic command-line interface for 
 1. creating, 
 2. reopening, 
@@ -21,7 +31,7 @@ The class also includes methods for performing actions such as resetting passwor
 
 ## Example Usage
 
-The `main.py` script demonstrates the usage of the `Ticket` class. It creates tickets, performs various actions on them, and prints ticket information.
+The `main.py` is used to interact with the `ticket` class. Follow the instructions on screen to create tickets, and performs various actions on them, including printing ticket information.
 
 ### How to Run
 
