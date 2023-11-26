@@ -4,6 +4,8 @@
   <img src="python_ticket.jpg" alt="Ticket" width="300"/>
 </div>
 
+*Image created by Dall-e*
+
 
 
 also available in Replit:
