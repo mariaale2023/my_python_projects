@@ -2,6 +2,8 @@
 
 ![blackjack](blackjack.jpg)
 
+*image created by dall-e*
+
 also available on replit
 https://replit.com/@mariaale2023/blackjack
 
