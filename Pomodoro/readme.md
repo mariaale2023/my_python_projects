@@ -1,6 +1,12 @@
 # Pomodoro Timer
 
+![pomodoro](pomodoro.jpg)
+*image created by dall-e*
+
 This Pomodoro Timer is a simple implementation based on instructions from the "100 Days of Python" course. It utilizes the Tkinter library for the graphical user interface.
+
+Created following instructions from [100 days of code](https://www.udemy.com/course/100-days-of-code)
+
 
 ![Pomodoro Timer](Screenshot.png)
 
