@@ -1,6 +1,7 @@
 # Codewars Katas
 
 ![codewars](codewars.jpg)
+*image created by dall-e*
 
 A small, growing collection of some challenges made for python training in Codewars
 
