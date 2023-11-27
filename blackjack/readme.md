@@ -1,6 +1,7 @@
 # Blackjack Game
 
 ![blackjack](blackjack.jpg)
+
 *image created by dall-e*
 
 also available on replit
