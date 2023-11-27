@@ -1,15 +1,16 @@
 # Codewars Katas
 
 ![codewars](codewars.jpg)
+*image created by dall-e*
 
 A small, growing collection of some challenges made for python training in Codewars
 
 
-### vowel remover
+## Vowel remover
 returns a string without vowels
 
-### DNA pairing
+## DNA pairing
 returns the DNA pair for a given string
 
-### Binary sum
+## Binary sum
 converts the sum of 2 numbers to a binary string
