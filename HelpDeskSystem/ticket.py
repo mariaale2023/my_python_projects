@@ -1,79 +1,80 @@
+import random
+# Develop a Help Desk ticketing system prototype. 
+
+
+# Create a class Ticket to represent a INDIVIDUAL ticket
 class Ticket:
-    ticket_counter = 2000  # Class variable to auto-generate ticket numbers
-
-    def __init__(self, id_creator: str, caller_name: str, caller_email: str, description: str):
-        """
-        Initializes a new Ticket instance.
-
-        Args:
-        - ticket_creator (str): The name of the person creating the ticket.
-        - caller_name (str): The name of the person reporting the issue.
-        - caller_email (str): The email address of the person reporting the issue.
-        - description (str): A brief description of the issue or request.
-        """
-        self.ticket_creator = id_creator
-        self.caller_name = caller_name
-        self.caller_email = caller_email
-        self.ticket_number = self.ticket_counter
-        self.description = description
-        self.status = "Open"
-        self.comments = []
-
-        Ticket.ticket_counter += 1
-
-    def reset_password(self, admin_name):
-        # Perform password reset logic here
-        self.status = "Resolved"
-        string = f'Password reset by {admin_name}. New password: {self.caller_name[:2]}{admin_name[:3]}'
-        print(string)
-        self.comments.append(string)
-
-    # def print(self):
-    #     print(f'{self.ticket_number}: {self.status}. Caller: {self.caller_name} - {self.caller_email}. Comments:{", ".join(self.comments)}')
-
-    def solve_ticket(self, resolution_notes, admin_name):
-        # Perform ticket resolution logic here
-        self.status = "Resolved"
-        self.comments.append(
-            f"Ticked solved by {admin_name}. Resolution notes: {resolution_notes}\n")
-
-    def feedback(self, rating, comment):
-        # Record feedback from the user
-        self.comments.append(f"\nFeedback: Rating {rating}/5 - {comment}\n")
-
-    def submit_comment(self, user_name, comment):
-        # Allow user to submit additional comments
-        self.comments.append(f"\nComment by {user_name}: {comment}\n")
-
-    def reopen_ticket(self, user_name, comment):
-        # Reopen a closed ticket
-        if self.status == "Resolved":
-            self.status = "Open"
-            self.comments.append(
-                f"Ticket reopened. {user_name} indicates: {comment}")
-
-    def __str__(self):
-        return f"Ticket Number: {self.ticket_number}\n" \
-               f"Ticket Creator: {self.ticket_creator}\n" \
-               f"Caller Name: {self.caller_name}\n" \
-               f"Caller Email: {self.caller_email}\n" \
-               f"Status: {self.status}\n" \
-               f"Description: {self.description}\n" \
-               f"Comments: {', '.join(self.comments)}"
+  # Internal Tickets assignation numbers start from 2000. 
+  ticket_start_number = 2000
+  list_of_tickets = []
+  num_tickets_total_submited = 0
+  num_tickets_close = 0
+  num_tickets_open = 0
 
 
-# Example usage:
-if __name__ == "__main__":
-    # Create a new ticket
-    ticket1 = Ticket("Alice", "Bob", "bob@example.com",
-                     "Can't access my account")
+  # function to open a ticket
+  def __init__(self, user_name,user_staff_id, user_email, description ):
+    self.user_name = user_name 
+    self.user_staff_id = user_staff_id
+    self.user_email = user_email
+    self.description = description
+    self.ticket_number = str(Ticket.ticket_start_number)
+    self.status = "Open"
+    self.comment = []
+    self.response = "Not yet provided"
+    
+    # Additon 1 to "Open" counter ticket
+    Ticket.ticket_start_number += 1
+    Ticket.num_tickets_open += 1
 
-    # Perform actions on the ticket
-    ticket1.reset_password("Admin1")
-    ticket1.feedback(4, "Service was good.")
-    ticket1.solve_ticket("password reset and emailed", "Admin2")
-    ticket1.reopen_ticket()
-    ticket1.submit_comment("Alice", "I'm still having issues.")
+    # Append new ticket to the list of tickets
+    Ticket.list_of_tickets.append(self)
 
-    # Print the ticket information
-    print(ticket1)
+  
+  # Show the ticket 
+  def __str__(self):
+      return f"  Caller Name: {self.user_name}\n" \
+             f"  Ticket Number: {self.ticket_number}\n" \
+             f"  Ticket Creator: {self.user_staff_id}\n" \
+             f"  Caller Email: {self.user_email}\n" \
+             f"  Description: {self.description}\n" \
+             f"  Status: {self.status}\n" \
+             f"  Response: {self.response}\n" \
+             f"  Comments: {', '.join(self.comment)}\n" 
+
+  # create password new password
+  def new_password(self):
+    #  random_five_numbers = random.randint(1000000,9999999)
+    #  password = f'{self.user_name}{random_five_numbers}'
+    password = f'{self.user_staff_id[:2]}{self.user_name[:3]}'
+    return password
+  
+
+  # function to respond ticket
+  def resolve_ticket(self, comment):
+     self.status = 'Close'
+     self.response = 'Ticket Resolve'
+     self.comment.append(comment)
+     Ticket.num_tickets_close += 1
+     Ticket.num_tickets_open -= 1
+    
+
+  # function to reopen ticket
+  def reopen_ticket(self, comment):
+     self.status = 'Open'
+     self.response = 'Ticket Re-Open'
+     self.comment.append(comment)
+     Ticket.num_tickets_close -= 1
+     Ticket.num_tickets_open += 1
+     
+  
+  @classmethod
+  def get_statistics(cls):
+        return {
+            "num_tickets_submitted": cls.num_tickets_close + cls.num_tickets_open,
+            "num_tickets_resolved": cls.num_tickets_close,
+            "num_tickets_open": cls.num_tickets_open}
+
+
+# TODO check in the future , not for this assesment, how I can eliminate the @classmethid, to do more simple.
+# hint: not the ticket4_close is close by the method and not because status = close  
